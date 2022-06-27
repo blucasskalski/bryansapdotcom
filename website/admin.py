@@ -44,17 +44,8 @@ admin.site.register(Observation, ObservationAdmin)
 #
 # Collections
 #
-class CollectionObservationInline(admin.TabularInline):
-    model = CollectionObservation
+class CollectionInline(admin.TabularInline):
+    model = Collection
     extra = 2  # how many rows to show
 
-
-class CollectionAdmin(admin.ModelAdmin):
-    inlines = (CollectionObservationInline,)
-    list_display = (
-        "__str__",
-        "nom",
-    )
-
-
-admin.site.register(Collection, CollectionAdmin)
+admin.site.register(Collection)

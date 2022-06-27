@@ -17,16 +17,25 @@ class Observation(TimeStampedModel):
     typeobservation = models.ForeignKey(
         "TypeObservation", on_delete=models.CASCADE, default=None
     )
+
+    Catalogs = Choices(
+        ("M"),
+        ("NGC"),
+        ("ARP"),
+        ("-")
+    )
+
     id_observation = models.AutoField(primary_key=True)
-    nom_obj = models.TextField(default="Undefined")
-    temps_exp = models.IntegerField(default=0)
+    cat_obj = models.CharField(max_length=255, choices=Catalogs, default="-")
+    num_obj = models.IntegerField()
+    temps_exp = models.IntegerField()
     nb_exp = models.IntegerField(default=1)
     date = models.DateField(null=True, blank=True)
     remarques = models.TextField(null=True, blank=True)
 
     def __str__(self):
         str_dt = f" {self.date} " if self.date else ""
-        a = f"{self.nom_obj} | {self.typeobservation} [{str_dt}]"
+        a = f"{self.cat_obj} {self.num_obj} | {self.typeobservation} [{str_dt}]"
         return a
 
     pass
@@ -78,21 +87,6 @@ class ImageObservation(TimeStampedModel):
     id = models.AutoField(primary_key=True)
     pass
 
-class CollectionObservation(TimeStampedModel):
-    collection = models.ForeignKey(
-        "Collection", on_delete=models.CASCADE, related_name="+", default=None
-    )
-    observation = models.ForeignKey(
-        "Observation", on_delete=models.CASCADE, related_name="+", default=None
-    )
-
-    id_collectionobservation = models.AutoField(primary_key=True)
-
-    def __str__(self):
-        return str(self.ordre)
-
-    pass
-
 
 class Collection(TimeStampedModel):
     id_collection = models.AutoField(primary_key=True)
@@ -101,7 +95,6 @@ class Collection(TimeStampedModel):
     observations = models.ManyToManyField(
         Observation,
         related_name="collections",
-        through="CollectionObservation",
     )
 
     def __str__(self):

@@ -27,13 +27,6 @@ class TypeObservationForm(ModelForm):
         fields = "__all__"
 
 
-
-class CollectionObservationForm(ModelForm):
-    class Meta:
-        model = CollectionObservation
-        fields = "__all__"
-
-
 class CollectionForm(ModelForm):
     class Meta:
         model = Collection
