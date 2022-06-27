@@ -1,0 +1,85 @@
+- model: shInvSol.typeevenement
+  pk: 1
+  fields:
+    nom: 'Eruption'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 2
+  fields:
+    nom: 'Eruption douteuse'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 3
+  fields:
+    nom: 'Disparition Brusque de filament'
+    abreviation: 'DB'
+- model: shInvSol.typeevenement
+  pk: 4
+  fields:
+    nom: 'Plage Faculaire'
+    abreviation: 'PF'
+- model: shInvSol.typeevenement
+  pk: 5
+  fields:
+    nom: 'Dark Surge on Disk'
+    abreviation: 'DSD'
+- model: shInvSol.typeevenement
+  pk: 6
+  fields:
+    nom: 'Bright Surge on Limb'
+    abreviation: 'BSL'
+- model: shInvSol.typeevenement
+  pk: 7
+  fields:
+    nom: 'Bright Surge on Disk'
+    abreviation: 'BSD'
+- model: shInvSol.typeevenement
+  pk: 8
+  fields:
+    nom: 'Ejection de matière'
+    abreviation: 'Surge'
+- model: shInvSol.typeevenement
+  pk: 9
+  fields:
+    nom: 'Eruption douteuse'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 10
+  fields:
+    nom: 'Taches solaires'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 11
+  fields:
+    nom: 'Soleil calme'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 12
+  fields:
+    nom: 'Soleil actif'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 13
+  fields:
+    nom: 'Avion'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 14
+  fields:
+    nom: 'Eclipse'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 15
+  fields:
+    nom: 'Loops'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 16
+  fields:
+    nom: 'Protubérances'
+    abreviation: ''
+- model: shInvSol.typeevenement
+  pk: 17
+  fields:
+    nom: 'Point brillant'
+    abreviation: ''

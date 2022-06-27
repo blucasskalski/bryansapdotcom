@@ -1,0 +1,10 @@
+- model: shInvSol.instrument
+  pk: 1
+  fields:
+    nom: 'Héliographe'
+    description: ''
+- model: shInvSol.instrument
+  pk: 2
+  fields:
+    nom: 'Héliographe à lambda variable'
+    description: ''

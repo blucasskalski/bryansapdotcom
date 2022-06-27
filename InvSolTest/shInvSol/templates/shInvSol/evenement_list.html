@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Liste des evenements</h1>
+  {% if evenement_list %}
+    <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Support</th>
+            <th>Type d'evenement</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for evenement in evenement_list %}
+          <tr>
+            <td><a href="{{ evenement.id_evenement}}">{{ evenement }}</a></td>
+            <td>{{evenement.type_evenement}}</td>
+            <td>{{evenement.date}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+  {% else %}
+    <p>Il n'y a pas d'evenement dans la base de donnée.</p>
+  {% endif %}
+{% endblock %}

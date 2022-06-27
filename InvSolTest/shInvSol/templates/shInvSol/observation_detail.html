@@ -1,0 +1,32 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Titre: {{ observation | default:"Aucun" }}</h2>
+
+  <p><strong>Support:</strong><a href="{% url 'support-detail' observation.support_id%}">{{ observation.support }}</a></a></p>
+  <p><strong>Type d'observation:</strong> {{ observation.typeobservation }}</p>
+  <p><strong>Collection:</strong> {% if observation.collectionobservation %} {{ observation.collectionobservation }} {% else %} Aucune {% endif %}</p>
+  <p><strong>Date:</strong> {{ observation.date}}</p>
+  <p><strong>Heure de début:</strong> {{ observation.heure_debut | default:"Aucun" }}</p>
+  <p><strong>Heure de fin:</strong> {{ observation.heure_fin | default:"Aucun" }}</p>
+  <p><strong>Remarques :</strong> {{ observation.remarques | default:"Aucun" }}</p>
+  {% if observation.interet %}
+    <div class="alert alert-success" role="alert" style="width: fit-content; padding-right: 20px; padding-bottom: 10px; padding-top: 10px;">
+    Observation avec intérêt
+    </div>
+  {% endif %}
+  {% if observation.evenements.all %}
+    <ul class="list-group" style="width:700px; padding-bottom: 20px;">
+    <li class="list-group-item list-group-item-info">Evenement(s): </li>
+    {% for evenement in observation.evenements.all %}
+      <li class="list-group-item d-flex justify-content-between align-items-center"><p><a href="{% url 'Evenement-detail' evenement.id_evenement%}">{{ evenement }}</a></p></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  <a href="/admin/shInvSol/observation/{{observation.id_observation}}/change/" class="btn btn-warning" role="button" style="margin-right: 5px">
+    <i class="bi bi-pencil-square">Modifier</i>
+  </a>
+  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary" role="button" style="margin-left: 5px">
+    <i class="bi bi-arrow-return-left">Retour</i>
+  </a>
+{% endblock %}

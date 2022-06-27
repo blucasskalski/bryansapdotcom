@@ -1,0 +1,40 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Liste des supports</h1>
+  {% if support_list %}
+  <!--
+  <ul>
+    {% for support in support_list %}
+      <li>
+        <a href="{{ support.id_support }}">{{ support }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+-->
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+       <th>Support</th>
+       <th>Instrument</th>
+       <th>Type</th>
+       <th>Numéro</th>
+       <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for support in support_list %}
+      <tr>
+        <td><a href="{{ support.id_support }}">{{ support }}</a></td>
+        <td>{{support.instrument}}</td>
+        <td>{{support.get_type_display}}</td>
+        <td>{{support.numero}}</td>
+        <td>{{support.date_debut}}</td>
+      </tr>
+    {% endfor %}
+  </tbody>
+</table>
+  {% else %}
+    <p>Il n'y a pas de supports dans la base de donnée.</p>
+  {% endif %}
+{% endblock %}

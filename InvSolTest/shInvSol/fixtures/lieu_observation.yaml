@@ -1,0 +1,14 @@
+- model: shInvSol.lieuobservation
+  pk: 1
+  fields:
+    nom: 'Observatoire de Paris - Site de Meudon'
+    longitude: 2.23225
+    latitude: 48.805083
+    IAU_code: 005
+- model: shInvSol.lieuobservation
+  pk: 2
+  fields:
+    nom: 'Observatoire de Haute-Provence'
+    longitude: 5.715694
+    latitude: 43.931861
+    IAU_code: 511

@@ -1,0 +1,55 @@
+- model: shInvSol.typeobservation
+  pk: 1
+  fields:
+    nom: 'Hα'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 2
+  fields:
+    nom: 'D3'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 3
+  fields:
+    nom: 'K'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 4
+  fields:
+    nom: 'K2'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 5
+  fields:
+    nom: 'K2.3'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 6
+  fields:
+    nom: 'K2v'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 7
+  fields:
+    nom: 'K3'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 8
+  fields:
+    nom: 'k1r'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 9
+  fields:
+    nom: 'k1v'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 10
+  fields:
+    nom: 'Protubérance'
+    lg_onde:
+- model: shInvSol.typeobservation
+  pk: 11
+  fields:
+    nom: 'Vitesse'
+    lg_onde:

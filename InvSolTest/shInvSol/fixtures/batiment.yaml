@@ -1,0 +1,6 @@
+- model: shInvSol.batiment
+  pk: 1
+  fields:
+    created: 2022-06-03 08:59:39.921327+00:00
+    modified: 2022-06-03 08:59:39.921327+00:00
+    nom: '14'

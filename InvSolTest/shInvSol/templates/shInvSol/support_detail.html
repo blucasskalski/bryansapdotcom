@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h2>Support: {{ support }}</h2>
+
+  <p><strong>Instrument:</strong>{{ support.instrument }}</a></p> <!--Lien vers les détails des objets à ajouter -->
+  <p><strong>Lieu d'observation:</strong> {{ support.lieuobservation }}</p>
+  <p><strong>Lieu de stockage:</strong> {{ support.lieustockage }}</p>
+  <p><strong>Type:</strong> {{ support.get_type_display}}</p>
+  <p><strong>Numéro:</strong> {{ support.numero}}</p>
+  <p><strong>Titre:</strong> {{support.titre | default:"Aucun" }}</p>
+  <p><strong>Description:</strong> {{ support.description | default:"Aucun" }}</p>
+  <p><strong>Date de début:</strong> {{ support.date_debut | default:"Aucun" }}</p>
+  <p><strong>Date de fin:</strong> {{ support.date_fin | default:"Aucun" }}</p>
+  <p><strong>Diamètre solaire:</strong> {{ support.diametre_solaire | default:"Aucun" }}</p>
+  <p><strong>Remarques :</strong> {{ support.remarques | default:"Aucun" }}</p>
+  <p><strong>Image(s) :</strong>
+    <ul>
+  {% for support_image in support.img_s.all %}
+    <li><a href="{{ support_image.image.url }}"><img  style="margin-bottom: 20px" src="{{ support_image.image.url }}"height="100"></a> {{ support_image.image.description}}</li>
+  {% endfor %}
+    </ul>
+  </p>
+  {% if support.manquant %} <p style="color:darkred">Support manquant</p>{% endif %}
+  {% if support.abime %} <p style="color:darkred">Support abimé</p>{% endif %}
+  {% if support.interet %} <p style="color:darkgreen;">Support avec intérêt</p>{% endif %}
+  {% if support.observations.all %}
+    <ul class="list-group" style="width:350px; padding-bottom: 20px;">
+    <li class="list-group-item list-group-item-info">Observation(s): </li>
+    {% for observation in support.observations.all %}
+      <li class="list-group-item d-flex justify-content-between align-items-center"><p><a href="{% url 'observation-detail' observation.id_observation%}">{{ observation }}</a></p></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  <a href="/admin/shInvSol/support/{{support.id_support}}/change/" class="btn btn-warning" role="button" style="margin-right: 5px">
+    <i class="bi bi-pencil-square">Modifier</i>
+  </a>
+  <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary" role="button" style="margin-left: 5px">
+    <i class="bi bi-arrow-return-left">Retour</i>
+  </a>
+{% endblock %}

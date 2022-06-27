@@ -1,0 +1,14 @@
+- model: shInvSol.lieustockage
+  pk: 1
+  fields:
+    batiment: 1
+    piece: '125 B'
+    emplacement: ''
+    description: ''
+- model: shInvSol.lieustockage
+  pk: 2
+  fields:
+    batiment: 1
+    piece: '127'
+    emplacement: ''
+    description: ''

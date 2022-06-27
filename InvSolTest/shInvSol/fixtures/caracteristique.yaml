@@ -1,0 +1,104 @@
+- model: shInvSol.caracteristique
+  pk: 1
+  fields:
+    caracteristique: 'Protubérance éruptive dont la base est à moins 90° du méridien central'
+- model: shInvSol.caracteristique
+  pk: 2
+  fields:
+    caracteristique: 'probablement fin d’une éruption importante'
+- model: shInvSol.caracteristique
+  pk: 3
+  fields:
+    caracteristique: 'Invisible 10 minutes auparavant'
+- model: shInvSol.caracteristique
+  pk: 4
+  fields:
+    caracteristique: 'Point brillant'
+- model: shInvSol.caracteristique
+  pk: 5
+  fields:
+    caracteristique: 'Deux ou plusieurs points brillants'
+- model: shInvSol.caracteristique
+  pk: 6
+  fields:
+    caracteristique: 'Plusieurs centres éruptifs'
+- model: shInvSol.caracteristique
+  pk: 7
+  fields:
+    caracteristique: 'pas de taches visibles dans les alentours'
+- model: shInvSol.caracteristique
+  pk: 8
+  fields:
+    caracteristique: 'Eruption accompagnée d’un filament sombre à grande vitesse radiale : SURGE'
+- model: shInvSol.caracteristique
+  pk: 9
+  fields:
+    caracteristique: 'Région perturbée très étendue'
+- model: shInvSol.caracteristique
+  pk: 10
+  fields:
+    caracteristique: 'Variations nettes de l’intensité de la plage avant ou après l’éruption'
+- model: shInvSol.caracteristique
+  pk: 11
+  fields:
+    caracteristique: 'Plusieurs maxima d’intensité'
+- model: shInvSol.caracteristique
+  pk: 12
+  fields:
+    caracteristique: 'Filaments déjà existant dans les environs et qui montrent des signes d’activité soudaine'
+- model: shInvSol.caracteristique
+  pk: 13
+  fields:
+    caracteristique: 'L’éruption a un fond continu intense (visible en lumière blanche)'
+- model: shInvSol.caracteristique
+  pk: 14
+  fields:
+    caracteristique: 'Le spectre continu montre des effets de polarisation'
+- model: shInvSol.caracteristique
+  pk: 15
+  fields:
+    caracteristique: 'Les observations ont été faites sur les raies H et K du calcium II'
+- model: shInvSol.caracteristique
+  pk: 16
+  fields:
+    caracteristique: 'L’éruption montre la raie D3 de l’hélium en émission'
+- model: shInvSol.caracteristique
+  pk: 17
+  fields:
+    caracteristique: 'L’éruption montre en émission le continuum de Balmer'
+- model: shInvSol.caracteristique
+  pk: 18
+  fields:
+    caracteristique: 'La raie Hα montre une nette asymétrie suggérant des éjections de matière à grande vitesse'
+- model: shInvSol.caracteristique
+  pk: 19
+  fields:
+    caracteristique: 'Eruption consécutive à l’envol d’un filament'
+- model: shInvSol.caracteristique
+  pk: 20
+  fields:
+    caracteristique: 'Région active toute la journée'
+- model: shInvSol.caracteristique
+  pk: 21
+  fields:
+    caracteristique: 'Formation de deux trainées brillantes parallèles ou convergentes (formes en II ou Y)'
+- model: shInvSol.caracteristique
+  pk: 22
+  fields:
+    caracteristique: 'Existence d’une phase « explosive » : expansion importante et brutale (en une minute environ) accompagnée ou non d’un important accroissement de l’intensité'
+- model: shInvSol.caracteristique
+  pk: 23
+  fields:
+    caracteristique: 'Important accroissement de l’aire après le maximum d’intensité'
+- model: shInvSol.caracteristique
+  pk: 24
+  fields:
+    caracteristique: 'Raie Hα exceptionnellement large'
+- model: shInvSol.caracteristique
+  pk: 25
+  fields:
+    caracteristique: 'Formation de filaments du type « loops »'
+- model: shInvSol.caracteristique
+  pk: 26
+  fields:
+    caracteristique: 'Ombre d’une tache importante couverte par l’éruption'
