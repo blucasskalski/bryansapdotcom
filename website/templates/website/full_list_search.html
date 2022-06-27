@@ -1,0 +1,63 @@
+{% extends "base_generic.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="well">
+      <h2 style="margin-top: 0">Recherche avancée</h2>
+      <div class="row">
+        <h4>Critères d'Observation :</h4>
+        <div class="form-group col-sm-4 col-md-3">
+          Type d'Observation :
+          {% render_field filter.form.typeobservation class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          Temps d'exposition (sec)
+          {% render_field filter.form.temps_exp class="form-control" %}
+        </div>
+        <div class="form-group col-sm-4 col-md-3">
+          {{ filter.form.date.label_tag }}
+          {% render_field filter.form.date class="form-control" type="date" %}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-info", style="margin-top: 20px;">
+        <i class="bi bi-search"></i> Rechercher
+      </button>
+      <button type="button" class="btn btn-danger", value=Reset id="resetBtn" onClick="this.form.reset()", style="margin-top: 20px;">
+        <i class="bi bi-x-square-fill"></i> RàZ
+      </button>
+    </div>
+  </form>
+
+  <h3 style="margin-top: 10px;">Observation(s) :</h3>
+  <table class="table table-bordered table-striped table-dark" style="margin-top: 20px;">
+    <thead>
+      <tr>
+        <th><strong>Nom</strong></th>
+        <th>Type</th>
+        <th>Date</th>
+        <th>Intérêt</th>
+        <th>Heure début</th>
+        <th>Heure fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for observation in observations %}
+        <tr>
+          <td><a href="{% url 'observation-detail' observation.id_observation %}">{{ observation }}</a></td>
+          <td>{{ observation.typeobservation }}</td>
+          <td>{{ observation.date }}</td>
+          <td>{% if observation.interet %} Oui {% else %} Non {% endif %}</td>
+          <td>{% if observation.heure_debut %} {{ observation.heure_debut }} {% else %} <i class="bi bi-x-lg"></i> {% endif %}</td>
+          <td>{% if observation.heure_fin %} {{ observation.heure_fin }} {% else %} <i class="bi bi-x-lg"></i> {% endif %}</td>
+        </tr>
+      {% empty %}
+        <tr>
+          <td colspan="5">Aucunne donnée</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

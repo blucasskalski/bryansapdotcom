@@ -1,0 +1,41 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h2>Titre: {{ observation | default:"Aucun" }}</h2>
+    <p>
+    {% for observation_image in observation.img_o.all %}
+      <a href="{{ observation_image.image.url }}"><img src="{{ observation_image.image.url }}"height="300"></a> 
+      {{ observation_image.image.description}}
+    {% endfor %}
+    </p>
+    <p><strong>Type d'observation:</strong> {{ observation.typeobservation }}</p>
+    {% if observation.collection %}
+    <p><strong>Collection:</strong> {% if observation.collectionobservation %} {{ observation.collectionobservation }} {% else %} Aucune {% endif %}</p>
+    {% endif %}
+    <p><strong>Date:</strong> {{ observation.date}}</p>
+    {% if observation.heure_debut %}
+    <p><strong>Heure de début:</strong> {{ observation.heure_debut | default:"Aucune" }}</p>
+    {% endif %}
+    {% if observation.heure_fin %}
+    <p><strong>Heure de fin:</strong> {{ observation.heure_fin | default:"Aucune" }}</p>
+    {% endif %}
+    {% if observation.remarques %}
+    <p><strong>Remarques :</strong> {{ observation.remarques | default:"Aucunes" }}</p>
+    {% endif %}
+    {% if observation.temps_exp %}
+      {% if observation.nb_exp %}
+        <div class="alert alert-success" role="alert" style="width: fit-content; padding-right: 20px; padding-bottom: 10px; padding-top: 10px;">
+        {{ observation.nb_exp }} x {{ observation.temps_exp }} secondes de pose
+        </div>
+      {% endif %}
+      {% else %}
+      <div class="alert alert-secondary" role="alert" style="width: fit-content; padding-right: 20px; padding-bottom: 5px; padding-top: 5px;">
+      Temps de pose non renseigné.
+    {% endif %}
+    <a href="/admin/website/observation/{{observation.id_observation}}/change/" class="btn btn-warning" role="button" style="margin-right: 5px">
+      <i class="bi bi-pencil-square">Modifier</i>
+    </a>
+    <a href="{{request.META.HTTP_REFERER}}" class="btn btn-secondary" role="button" style="margin-left: 5px">
+      <i class="bi bi-arrow-return-left">Retour</i>
+    </a>
+{% endblock %}

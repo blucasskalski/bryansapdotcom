@@ -1,0 +1,35 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Liste des observations</h1>
+  {% if observation_list %}
+    <table class="table table-bordered table-striped table-dark">
+       <thead>
+         <tr>
+           <th style="width: 302px;">Lien Image</th>
+           <th>Nom</th>
+           <th>Type d'observation</th>
+           <th>Collection d'Observation</th>
+           <th>Date</th>
+         </tr>
+       </thead>
+       <tbody>
+       {% for observation in observation_list %} 
+         <tr>
+            <td>
+              {% for observation_image in observation.img_o.all %}
+                <a href="{{ observation_image.image.url }}"><img src="{{ observation_image.image.url }}" height="300" width="300"></a>
+              {% endfor %}
+            </td>
+             <td><a href="{{ observation.id_observation}}">{{ observation }}</a></td>
+             <td>{{observation.typeobservation}}</td>
+             <td>{{observation.collectionobservation}}</td>
+             <td>{{observation.date}}</td>
+         </tr>
+       {% endfor %}
+       </tbody>
+    </table>
+  {% else %}
+    <p>Il n'y a pas d'observation dans la base de donnée.</p>
+  {% endif %}
+{% endblock %}
