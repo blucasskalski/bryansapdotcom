@@ -37,9 +37,8 @@
         <th><strong>Nom</strong></th>
         <th>Type</th>
         <th>Date</th>
-        <th>Intérêt</th>
-        <th>Heure début</th>
-        <th>Heure fin</th>
+        <th>Temps d'acquisition</th>
+	<th>Nombre d'acquisitions</th>
       </tr>
     </thead>
     <tbody>
@@ -47,10 +46,9 @@
         <tr>
           <td><a href="{% url 'observation-detail' observation.id_observation %}">{{ observation }}</a></td>
           <td>{{ observation.typeobservation }}</td>
-          <td>{{ observation.date }}</td>
-          <td>{% if observation.interet %} Oui {% else %} Non {% endif %}</td>
-          <td>{% if observation.heure_debut %} {{ observation.heure_debut }} {% else %} <i class="bi bi-x-lg"></i> {% endif %}</td>
-          <td>{% if observation.heure_fin %} {{ observation.heure_fin }} {% else %} <i class="bi bi-x-lg"></i> {% endif %}</td>
+	  <td>{% if observation.date %} {{ observation.date }} {% else %}<i class="bi bi-x-lg"></i> {% endif %}</td>
+          <td>{{ observation.temps_exp }}</td>
+          <td>{{ observation.nb_exp }}</td>
         </tr>
       {% empty %}
         <tr>
