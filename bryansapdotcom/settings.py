@@ -21,14 +21,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-1)_8^(72ajek65+m%%cma^5r6^%@4$(-q&!apw--uyz2d0$40@"
+SECRET_KEY = "1)_8^(72ajek65+m%%cma^5r6^%@4$(-q&!apw--uyz2d0$40@"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
 ALLOWED_HOSTS = ["*"]
 
-
+#SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+CSRF_TRUSTED_ORIGINS = ['bryansastrophoto.com']
 # Application definition
 
 INSTALLED_APPS = [
@@ -83,9 +86,9 @@ WSGI_APPLICATION = "bryansapdotcom.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "shInvSol",
-        "USER": "test",
-        "PASSWORD": "1234",
+        "NAME": "bryansap",
+        "USER": "bryanls",
+        "PASSWORD": "PZamxxk6",
         "HOST": "localhost",
         "PORT": "3000",
     }
