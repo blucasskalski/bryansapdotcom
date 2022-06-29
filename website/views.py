@@ -17,8 +17,10 @@ def index(request):
     # return HttpResponse("Web Server is ON, this is a placeholder.")
     num_observation = Observation.objects.all().count()
 
+    latest = Observation.objects.order_by('-date')
     context = {
         "num_observation": num_observation,
+        "latest": latest,
     }
 
     return render(request, "website/view.html", context=context)

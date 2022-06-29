@@ -11,4 +11,7 @@
   <ul>
     <li><strong>{{ num_observation }}</strong> Observation(s)</li>
   </ul>
+  {% for observation in latest|slice:":3"%}
+    {{observation}}
+  {% endfor %}
 {% endblock %}

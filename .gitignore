@@ -1,0 +1,4 @@
+bryansapdotcom/__pycache__/
+website/__pycache__/
+*.log
+website/migrations/__pycache__/
