@@ -11,7 +11,39 @@
   <ul>
     <li><strong>{{ num_observation }}</strong> Observation(s)</li>
   </ul>
-  {% for observation in latest|slice:":3"%}
-    {{observation}}
-  {% endfor %}
+  <h3>Dernières Observations:</h3>
+  <table>
+	  <thead>
+		  <tr>
+			  <th>
+			  	{% for image in latest.0.img_o.all %}
+  					<img src={{image.image.url}} width=120>
+  				{% endfor %}
+			  </th>
+			  <th>
+			  	{% for image in latest.1.img_o.all %}
+  					<img src={{image.image.url}} width=120>
+  				{% endfor %}
+			  </th>
+			  <th>
+			  	{% for image in latest.2.img_o.all %}
+  					<img src={{image.image.url}} width=120>
+  				{% endfor %}
+			  </th>
+			  <th>
+			  	{% for image in latest.3.img_o.all %}
+  					<img src={{image.image.url}} width=120>
+  				{% endfor %}
+			  </th>
+		  </tr>
+	  </thead>
+	  <tbody>
+		  <tr>
+			  <td>{{ latest.0.cat_obj }}{{ latest.0.num_obj }}</td>
+			  <td>{{ latest.1.cat_obj }}{{ latest.1.num_obj }}</td>
+			  <td>{{ latest.2.cat_obj }}{{ latest.2.num_obj }}</td>
+			  <td>{{ latest.3.cat_obj }}{{ latest.3.num_obj }}</td>
+		  </tr>
+	  </tbody>
+  </table>
 {% endblock %}

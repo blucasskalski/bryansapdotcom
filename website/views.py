@@ -14,6 +14,7 @@ from .models import Observation
 
 
 def index(request):
+    paginate_by = 5
     # return HttpResponse("Web Server is ON, this is a placeholder.")
     num_observation = Observation.objects.all().count()
 
