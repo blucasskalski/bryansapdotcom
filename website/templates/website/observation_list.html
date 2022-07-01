@@ -16,9 +16,7 @@
        {% for observation in observation_list %} 
          <tr>
             <td>
-              {% for observation_image in observation.img_o.all %}
-                <a href="{{ observation_image.image.url }}"><img src="{{ observation_image.image.url }}" height="300" width="300"></a>
-              {% endfor %}
+                <a href="{{ observation.img_o.all.0.image.url }}"><img src="{{ observation.img_o.all.0.image.url }}" height="300" width="300"></a>
             </td>
              <td><a href="{{ observation.id_observation}}">{{ observation }}</a></td>
              <td>{{observation.typeobservation}}</td>

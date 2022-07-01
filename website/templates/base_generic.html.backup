@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr" class="bg-dark">
+<head>
+  {% block title %}<title>BLaStro</title>{% endblock %}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+</head>
+<body class="bg-dark">
+  <header class="bg-dark">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="border-radius: 0px 70px 70px 0px; border: 2px solid lightgray; margin-bottom: 20px; margin-top: 20px; margin-right: 60px; margin-left: 20px; width: 90%">
+                <a class="navbar-brand" href="/" style="padding-left: 20px;"><h1>BLaStr<small><small><small><i style="color:white" class="bi bi-moon-fill"></i></small></small></small></h1></a>
+        </div>
+      </nav>
+  </header>
+  <div class="container-fluid bg-dark", style="height:100%">
+    <div class="row">
+            <div class="bg-dark text-white" style="width: 10%; height: fit-content; border-radius: 0px 15px 15px 0px; border: 2px solid lightgray; padding-top: 20px; padding-bottom: 20px; margin-left: 20px;">
+                {% block sidebar %}
+                <ul class="nav nav-pills flex-column mb-auto">
+                  <li class="nav-item">
+                    <a href="{% url 'index' %}" class="nav-link link-light text-secondary">
+                      <i class="bi bi-house-fill"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/admin/" class="nav-link link-light text-secondary">
+                      <i class="bi bi-person-fill"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'index' %}recherche/" class="nav-link text-secondary link-light">
+                      <i class="bi bi-search"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="{% url 'index' %}observation/" class="nav-link link-light text-secondary">
+                      <i class="bi bi-record"></i>
+                    </a>
+                  </li>
+                </ul>
+                {% endblock %}
+        </div>
+         <div class="col-sm-10 bg-dark" style="height: auto; position: absolute; margin-left: 18%; color:white">
+             {% block content %}
+             {% endblock %}
+               {% block pagination %}
+                {% if is_paginated %}
+                    <div class="pagination">
+                        <span class="page-links">
+                            {% if page_obj.has_previous %}
+                                <a class ="btn btn-outline-primary btn-sm" href="{{ request.path }}?page={{ page_obj.previous_page_number }}" role="button">précédent</a>
+                            {% endif %}
+                            <span class="page-current">
+                                Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}.
+                            </span>
+                            {% if page_obj.has_next %}
+                                <a class ="btn btn-outline-primary btn-sm" href="{{ request.path }}?page={{ page_obj.next_page_number }}" role="button">suivant</a>
+                            {% endif %}
+                        </span>
+                    </div>
+                {% endif %}
+              {% endblock %}
+         </div>
+    </div>
+  </div>
+</body>
+</html>
